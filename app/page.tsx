@@ -85,7 +85,7 @@ function HeroStatsCard() {
         filter: 'blur(10px)',
       }} />
       <div
-        className="relative bg-white border border-neutral-200 rounded-xl p-8 border-l-4 border-l-gray-500/80"
+        className="relative bg-white border border-neutral-200 rounded-xl p-8 border-l-4 border-l-emerald-500"
         style={{ boxShadow: CARD_SHADOW }}
       >
         <div className="flex items-center justify-between mb-6">
