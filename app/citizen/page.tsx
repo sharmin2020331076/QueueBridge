@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function CitizenPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 py-12 px-4">
+    <main className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">QueueBridge</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-neutral-900 mb-2">QueueBridge</h1>
+          <p className="text-xl text-neutral-600">
             Book appointments and track your queue position in real-time
           </p>
         </div>
@@ -25,13 +25,13 @@ export default function CitizenPage() {
           </TabsList>
 
           <TabsContent value="book" className="w-full">
-            <div className="bg-white rounded-lg border border-gray-200 p-8">
+            <div className="bg-white rounded-lg border border-neutral-200 p-8">
               <BookingForm />
             </div>
           </TabsContent>
 
           <TabsContent value="track" className="w-full">
-            <div className="bg-white rounded-lg border border-gray-200 p-8">
+            <div className="bg-white rounded-lg border border-neutral-200 p-8">
               <TokenTracker />
             </div>
           </TabsContent>
@@ -39,32 +39,32 @@ export default function CitizenPage() {
 
         {/* Info Cards */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <div className="bg-white rounded-lg border border-neutral-200 p-6">
+            <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mb-4">
               <span className="text-xl">🎫</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Get Your Token</h3>
-            <p className="text-gray-600 text-sm">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-2">Get Your Token</h3>
+            <p className="text-neutral-600 text-sm">
               Book an appointment and receive a unique token for queue tracking
             </p>
           </div>
 
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <div className="bg-white rounded-lg border border-neutral-200 p-6">
+            <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mb-4">
               <span className="text-xl">📍</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Track Position</h3>
-            <p className="text-gray-600 text-sm">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-2">Track Position</h3>
+            <p className="text-neutral-600 text-sm">
               View your real-time position in queue and estimated wait time
             </p>
           </div>
 
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <div className="bg-white rounded-lg border border-neutral-200 p-6">
+            <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mb-4">
               <span className="text-xl">🔔</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Get Notified</h3>
-            <p className="text-gray-600 text-sm">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-2">Get Notified</h3>
+            <p className="text-neutral-600 text-sm">
               Receive instant notifications when you&apos;re called or approaching
             </p>
           </div>

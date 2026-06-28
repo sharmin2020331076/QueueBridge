@@ -78,29 +78,29 @@ export function TokenTracker() {
   }
 
   const statusColors = {
-    pending: 'bg-yellow-50 border-yellow-200',
-    serving: 'bg-blue-50 border-blue-200',
-    completed: 'bg-green-50 border-green-200',
+    pending: 'bg-neutral-50 border-neutral-200',
+    serving: 'bg-emerald-50 border-emerald-200',
+    completed: 'bg-blue-50 border-blue-200',
   }
 
   const statusTextColors = {
-    pending: 'text-yellow-800',
-    serving: 'text-blue-800',
-    completed: 'text-green-800',
+    pending: 'text-neutral-800',
+    serving: 'text-emerald-800',
+    completed: 'text-blue-800',
   }
 
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+      <div className="bg-white rounded-lg border border-neutral-200 p-8 shadow-sm">
         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-          <Ticket className="w-6 h-6 text-blue-600" />
+          <Ticket className="w-6 h-6 text-emerald-600" />
           Track Your Queue Position
         </h2>
 
         {!queueInfo ? (
           <form onSubmit={handleTrack} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-neutral-700 mb-2">
                 Enter Your Token
               </label>
               <input
@@ -108,13 +108,13 @@ export function TokenTracker() {
                 value={token}
                 onChange={(e) => setToken(e.target.value.toUpperCase())}
                 placeholder="e.g., A-047"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent font-mono text-lg text-center placeholder-gray-500 text-gray-900"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-transparent font-mono text-lg text-center placeholder-neutral-500 text-neutral-900"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-6 py-3 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 transition-colors disabled:opacity-50"
+              className="w-full px-6 py-3 bg-emerald-600 rounded-lg font-semibold text-white hover:bg-emerald-700 transition-colors disabled:opacity-50"
             >
               {loading ? 'Tracking...' : 'Track Position'}
             </button>
@@ -128,7 +128,7 @@ export function TokenTracker() {
                 {queueInfo.status === 'serving' && 'Your Token is Being Served'}
                 {queueInfo.status === 'completed' && 'Completed'}
               </p>
-              <p className="text-5xl font-bold text-gray-900 font-mono mb-2">
+              <p className="text-5xl font-bold text-neutral-900 font-mono mb-2">
                 {queueInfo.token}
               </p>
             </div>
@@ -136,21 +136,21 @@ export function TokenTracker() {
             {/* Queue Information */}
             {queueInfo.status === 'pending' && (
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="flex items-center gap-2 text-gray-600 mb-2">
+                <div className="bg-neutral-50 rounded-lg p-4">
+                  <div className="flex items-center gap-2 text-neutral-600 mb-2">
                     <Users className="w-4 h-4" />
                     <span className="text-sm">Position in Queue</span>
                   </div>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-2xl font-bold text-neutral-900">
                     {queueInfo.queuePosition || '-'}
                   </p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="flex items-center gap-2 text-gray-600 mb-2">
+                <div className="bg-neutral-50 rounded-lg p-4">
+                  <div className="flex items-center gap-2 text-neutral-600 mb-2">
                     <Clock className="w-4 h-4" />
                     <span className="text-sm">Est. Wait Time</span>
                   </div>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-2xl font-bold text-neutral-900">
                     {((queueInfo.queuePosition || 1) * 15)} min
                   </p>
                 </div>
@@ -158,15 +158,15 @@ export function TokenTracker() {
             )}
 
             {queueInfo.status === 'serving' && (
-              <div className="bg-blue-100 border border-blue-300 rounded-lg p-4 text-center">
-                <p className="text-lg font-semibold text-blue-900 mb-2">
+              <div className="bg-emerald-100 border border-emerald-300 rounded-lg p-4 text-center">
+                <p className="text-lg font-semibold text-emerald-900 mb-2">
                   Please proceed to the counter
                 </p>
-                <p className="text-sm text-blue-700">
+                <p className="text-sm text-emerald-700">
                   Your service will start shortly
                 </p>
                 {queueInfo.waitTimeMinutes && (
-                  <p className="text-sm text-blue-700 mt-2">
+                  <p className="text-sm text-emerald-700 mt-2">
                     You waited: {queueInfo.waitTimeMinutes} minutes
                   </p>
                 )}
@@ -174,12 +174,12 @@ export function TokenTracker() {
             )}
 
             {queueInfo.status === 'completed' && (
-              <div className="bg-green-100 border border-green-300 rounded-lg p-4 text-center">
-                <p className="text-lg font-semibold text-green-900">
+              <div className="bg-blue-100 border border-blue-300 rounded-lg p-4 text-center">
+                <p className="text-lg font-semibold text-blue-900">
                   Service Completed
                 </p>
                 {queueInfo.waitTimeMinutes && (
-                  <p className="text-sm text-green-700 mt-2">
+                  <p className="text-sm text-blue-700 mt-2">
                     Total time: {queueInfo.waitTimeMinutes} minutes
                   </p>
                 )}
@@ -189,7 +189,7 @@ export function TokenTracker() {
             {/* Details */}
             <div className="space-y-2 text-sm">
               {queueInfo.arrivedAt && (
-                <div className="flex justify-between text-gray-600">
+                <div className="flex justify-between text-neutral-600">
                   <span>Service Started:</span>
                   <span>
                     {new Date(queueInfo.arrivedAt).toLocaleTimeString()}
@@ -197,7 +197,7 @@ export function TokenTracker() {
                 </div>
               )}
               {queueInfo.completedAt && (
-                <div className="flex justify-between text-gray-600">
+                <div className="flex justify-between text-neutral-600">
                   <span>Completed:</span>
                   <span>
                     {new Date(queueInfo.completedAt).toLocaleTimeString()}
@@ -208,7 +208,7 @@ export function TokenTracker() {
 
             <button
               onClick={handleReset}
-              className="w-full px-6 py-2 border border-gray-300 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+              className="w-full px-6 py-2 border border-neutral-300 rounded-lg font-semibold text-neutral-700 hover:bg-neutral-50 transition-colors"
             >
               Track Different Token
             </button>

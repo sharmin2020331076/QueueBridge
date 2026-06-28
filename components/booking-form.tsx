@@ -99,8 +99,8 @@ export function BookingForm() {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
                   s <= step
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-500'
+                    ? 'bg-emerald-600 text-white'
+                    : 'bg-neutral-200 text-neutral-500'
                 }`}
               >
                 {s}
@@ -108,20 +108,20 @@ export function BookingForm() {
               {s < 4 && (
                 <div
                   className={`flex-1 h-1 ${
-                    s < step ? 'bg-blue-600' : 'bg-gray-200'
+                    s < step ? 'bg-emerald-600' : 'bg-neutral-200'
                   }`}
                 />
               )}
             </div>
           ))}
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-neutral-600">
           Step {step} of 4: {['Select Office', 'Choose Service', 'Personal Info', 'Schedule'][step - 1]}
         </p>
       </div>
 
       {/* Step content */}
-      <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+      <div className="bg-white rounded-lg border border-neutral-200 p-8 shadow-sm">
         {/* Step 1: Select Office */}
         {step === 1 && (
           <div className="space-y-4">
@@ -132,12 +132,12 @@ export function BookingForm() {
                 onClick={() => handleInputChange('office', office.id)}
                 className={`w-full p-4 text-left border-2 rounded-lg transition-colors ${
                   booking.office === office.id
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-emerald-600 bg-emerald-50'
+                    : 'border-neutral-200 hover:border-neutral-300'
                 }`}
               >
-                <p className="font-semibold text-gray-900">{office.name}</p>
-                <p className="text-sm text-gray-600">{office.location}</p>
+                <p className="font-semibold text-neutral-900">{office.name}</p>
+                <p className="text-sm text-neutral-600">{office.location}</p>
               </button>
             ))}
           </div>
@@ -153,12 +153,12 @@ export function BookingForm() {
                 onClick={() => handleInputChange('service', svc.id)}
                 className={`w-full p-4 text-left border-2 rounded-lg transition-colors ${
                   booking.service === svc.id
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-emerald-600 bg-emerald-50'
+                    : 'border-neutral-200 hover:border-neutral-300'
                 }`}
               >
-                <p className="font-semibold text-gray-900">{svc.name}</p>
-                <p className="text-sm text-gray-600">Estimated time: {svc.estimatedTime} minutes</p>
+                <p className="font-semibold text-neutral-900">{svc.name}</p>
+                <p className="text-sm text-neutral-600">Estimated time: {svc.estimatedTime} minutes</p>
               </button>
             ))}
           </div>
@@ -169,7 +169,7 @@ export function BookingForm() {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold mb-6">Your Information</h2>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-neutral-700 mb-1">
                 <User className="w-4 h-4 inline mr-2" />
                 Full Name
               </label>
@@ -177,12 +177,12 @@ export function BookingForm() {
                 type="text"
                 value={booking.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-transparent placeholder-neutral-500 text-neutral-900"
                 placeholder="Your name"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-neutral-700 mb-1">
                 <Phone className="w-4 h-4 inline mr-2" />
                 Phone Number
               </label>
@@ -190,12 +190,12 @@ export function BookingForm() {
                 type="tel"
                 value={booking.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-transparent placeholder-neutral-500 text-neutral-900"
                 placeholder="Your phone number"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-neutral-700 mb-1">
                 <Mail className="w-4 h-4 inline mr-2" />
                 Email (Optional)
               </label>
@@ -203,7 +203,7 @@ export function BookingForm() {
                 type="email"
                 value={booking.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-transparent placeholder-neutral-500 text-neutral-900"
                 placeholder="your@email.com"
               />
             </div>
@@ -215,7 +215,7 @@ export function BookingForm() {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold mb-6">Schedule Appointment</h2>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-neutral-700 mb-1">
                 <Calendar className="w-4 h-4 inline mr-2" />
                 Preferred Date
               </label>
@@ -223,12 +223,12 @@ export function BookingForm() {
                 type="date"
                 value={booking.date}
                 onChange={(e) => handleInputChange('date', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-transparent placeholder-neutral-500 text-neutral-900"
                 min={new Date().toISOString().split('T')[0]}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-neutral-700 mb-1">
                 <Clock className="w-4 h-4 inline mr-2" />
                 Preferred Time
               </label>
@@ -236,7 +236,7 @@ export function BookingForm() {
                 type="time"
                 value={booking.time}
                 onChange={(e) => handleInputChange('time', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-500 text-gray-900"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-transparent placeholder-neutral-500 text-neutral-900"
               />
             </div>
           </div>
@@ -246,9 +246,9 @@ export function BookingForm() {
         {step === 5 && token && (
           <div className="py-8">
             <div className="text-center mb-8">
-              <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
+              <CheckCircle2 className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
               <h2 className="text-2xl font-bold mb-2">Appointment Confirmed!</h2>
-              <p className="text-gray-600">Your booking is confirmed. Here&apos;s your ticket:</p>
+              <p className="text-neutral-600">Your booking is confirmed. Here&apos;s your ticket:</p>
             </div>
             <QRTicket
               token={token.token}
@@ -265,7 +265,7 @@ export function BookingForm() {
         <div className="flex gap-4 mt-8">
           <button
             onClick={handleBack}
-            className="flex-1 px-6 py-3 border border-gray-300 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50"
+            className="flex-1 px-6 py-3 border border-neutral-300 rounded-lg font-semibold text-neutral-700 hover:bg-neutral-50 transition-colors disabled:opacity-50"
             disabled={step === 1}
           >
             Back
@@ -273,7 +273,7 @@ export function BookingForm() {
           <button
             onClick={handleSubmit}
             disabled={loading || step === 1 && !booking.office || step === 2 && !booking.service || step === 3 && !booking.phone || step === 4 && (!booking.date || !booking.time)}
-            className="flex-1 px-6 py-3 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 transition-colors disabled:opacity-50"
+            className="flex-1 px-6 py-3 bg-emerald-600 rounded-lg font-semibold text-white hover:bg-emerald-700 transition-colors disabled:opacity-50"
           >
             {loading ? 'Processing...' : step === 4 ? 'Confirm Booking' : 'Next'}
           </button>
@@ -296,7 +296,7 @@ export function BookingForm() {
                 time: '',
               })
             }}
-            className="px-6 py-3 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 transition-colors"
+            className="px-6 py-3 bg-emerald-600 rounded-lg font-semibold text-white hover:bg-emerald-700 transition-colors"
           >
             Book Another Appointment
           </button>

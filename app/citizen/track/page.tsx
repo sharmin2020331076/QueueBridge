@@ -54,10 +54,10 @@ function TrackContent() {
 
   if (loading && !appointment) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-white">Loading appointment...</p>
+          <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-neutral-900">Loading appointment...</p>
         </div>
       </div>
     )
@@ -65,14 +65,14 @@ function TrackContent() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
-        <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800 max-w-md w-full text-center">
-          <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-white mb-2">Error</h1>
-          <p className="text-slate-400 mb-6">{error}</p>
+      <div className="min-h-screen bg-white flex items-center justify-center p-4">
+        <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-200 max-w-md w-full text-center">
+          <AlertCircle className="w-16 h-16 text-rose-500 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-neutral-900 mb-2">Error</h1>
+          <p className="text-neutral-600 mb-6">{error}</p>
           <button
             onClick={() => router.push('/citizen')}
-            className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors"
+            className="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors"
           >
             Back to Booking
           </button>
@@ -84,38 +84,38 @@ function TrackContent() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'serving':
-        return 'text-green-400'
+        return 'text-emerald-600'
       case 'completed':
-        return 'text-blue-400'
+        return 'text-blue-600'
       case 'no-show':
-        return 'text-red-400'
+        return 'text-rose-600'
       default:
-        return 'text-purple-400'
+        return 'text-neutral-600'
     }
   }
 
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'serving':
-        return <CheckCircle className="w-6 h-6 text-green-400" />
+        return <CheckCircle className="w-6 h-6 text-emerald-600" />
       case 'completed':
-        return <CheckCircle className="w-6 h-6 text-blue-400" />
+        return <CheckCircle className="w-6 h-6 text-blue-600" />
       default:
-        return <Clock className="w-6 h-6 text-purple-400" />
+        return <Clock className="w-6 h-6 text-neutral-600" />
     }
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 p-4">
+    <div className="min-h-screen bg-white p-4">
       <div className="max-w-md mx-auto pt-12">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Track Your Appointment</h1>
-          <p className="text-slate-400">Token: {token}</p>
+          <h1 className="text-3xl font-bold text-neutral-900 mb-2">Track Your Appointment</h1>
+          <p className="text-neutral-600">Token: {token}</p>
         </div>
 
         {/* Status Card */}
-        <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-8 border border-slate-800 mb-6">
+        <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-200 mb-6">
           {/* Status Indicator */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">{getStatusIcon(appointment?.status || 'pending')}</div>
@@ -128,29 +128,29 @@ function TrackContent() {
                     ? 'No Show'
                     : 'In Queue'}
             </h2>
-            <p className="text-slate-400">Token {appointment?.token}</p>
+            <p className="text-neutral-600">Token {appointment?.token}</p>
           </div>
 
           {/* Queue Info */}
           {appointment?.status === 'pending' && (
             <div className="space-y-4">
-              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700/50">
-                <p className="text-slate-400 text-sm mb-1">Queue Position</p>
-                <p className="text-white font-bold text-2xl">{appointment?.queuePosition || '-'}</p>
+              <div className="bg-white rounded-lg p-4 border border-neutral-200">
+                <p className="text-neutral-600 text-sm mb-1">Queue Position</p>
+                <p className="text-neutral-900 font-bold text-2xl">{appointment?.queuePosition || '-'}</p>
               </div>
 
               {appointment?.waitTimeMinutes !== undefined && (
-                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700/50">
-                  <p className="text-slate-400 text-sm mb-1">Estimated Wait Time</p>
-                  <p className="text-white font-bold text-2xl">{appointment.waitTimeMinutes} minutes</p>
+                <div className="bg-white rounded-lg p-4 border border-neutral-200">
+                  <p className="text-neutral-600 text-sm mb-1">Estimated Wait Time</p>
+                  <p className="text-neutral-900 font-bold text-2xl">{appointment.waitTimeMinutes} minutes</p>
                 </div>
               )}
 
-              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700/50">
-                <p className="text-slate-400 text-sm mb-1">Status</p>
-                <div className="w-full bg-slate-700 rounded-full h-2 mt-2">
+              <div className="bg-white rounded-lg p-4 border border-neutral-200">
+                <p className="text-neutral-600 text-sm mb-1">Status</p>
+                <div className="w-full bg-neutral-200 rounded-full h-2 mt-2">
                   <div
-                    className="bg-purple-600 h-2 rounded-full transition-all duration-1000"
+                    className="bg-emerald-600 h-2 rounded-full transition-all duration-1000"
                     style={{ width: `${Math.max(20, Math.min(100, ((5 - (appointment?.queuePosition || 5)) / 5) * 100))}%` }}
                   />
                 </div>
@@ -159,20 +159,20 @@ function TrackContent() {
           )}
 
           {appointment?.status === 'serving' && (
-            <div className="bg-green-500/10 rounded-lg p-4 border border-green-500/20">
-              <p className="text-green-400 text-center font-semibold">Head to the counter now!</p>
+            <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+              <p className="text-emerald-700 text-center font-semibold">Head to the counter now!</p>
             </div>
           )}
 
           {appointment?.status === 'completed' && (
-            <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-              <p className="text-blue-400 text-center font-semibold">Thank you for visiting!</p>
+            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+              <p className="text-blue-700 text-center font-semibold">Thank you for visiting!</p>
             </div>
           )}
         </div>
 
         {/* Auto-refresh toggle */}
-        <div className="flex items-center gap-2 p-4 bg-slate-900 rounded-lg border border-slate-800">
+        <div className="flex items-center gap-2 p-4 bg-neutral-50 rounded-lg border border-neutral-200">
           <input
             type="checkbox"
             id="auto-refresh"
@@ -180,7 +180,7 @@ function TrackContent() {
             onChange={(e) => setAutoRefresh(e.target.checked)}
             className="w-4 h-4 cursor-pointer"
           />
-          <label htmlFor="auto-refresh" className="text-slate-300 cursor-pointer flex-1">
+          <label htmlFor="auto-refresh" className="text-neutral-700 cursor-pointer flex-1">
             Auto-refresh every 5 seconds
           </label>
         </div>
@@ -188,7 +188,7 @@ function TrackContent() {
         {/* Back Button */}
         <button
           onClick={() => router.push('/citizen')}
-          className="w-full mt-6 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors"
+          className="w-full mt-6 px-6 py-3 bg-neutral-200 hover:bg-neutral-300 text-neutral-900 rounded-lg font-medium transition-colors"
         >
           Back
         </button>
