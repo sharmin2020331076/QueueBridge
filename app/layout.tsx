@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'QueueBridge - Queue Management System',
   description: 'Manage office queues with real-time tracking',
-  generator: 'Queue',
+  generator: 'QueueBridge',
   icons: {
     icon: [
       {
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '/letter-q.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/letter-q.png',
   },
 }
 
