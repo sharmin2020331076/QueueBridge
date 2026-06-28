@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { ArrowRight, Users, Clock, CircleCheck as CheckCircle, Monitor, ChartBar as BarChart3, Zap, Shield, Menu, X } from 'lucide-react'
+import Lenis from "lenis";
 
 /*
   DESIGN SYSTEM — locked tokens (unchanged from original)
@@ -84,7 +85,7 @@ function HeroStatsCard() {
         filter: 'blur(10px)',
       }} />
       <div
-        className="relative bg-white border border-neutral-200 rounded-xl p-8 border-l-4 border-l-emerald-500"
+        className="relative bg-white border border-neutral-200 rounded-xl p-8 border-l-4 border-l-gray-500/80"
         style={{ boxShadow: CARD_SHADOW }}
       >
         <div className="flex items-center justify-between mb-6">
@@ -344,6 +345,21 @@ function HowItWorksFlow() {
 /* ── Main page ── */
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-white text-neutral-900 antialiased">
